@@ -327,12 +327,48 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'MediNote Backend API',
+    version: '1.0.0',
+    status: 'running',
+    description: 'Medical transcription app backend for Attack Capital assignment',
+    endpoints: {
+      health: '/health',
+      debug: '/debug/sessions',
+      api: '/api/v1',
+      patients: '/api/v1/patients',
+      sessions: '/api/v1/upload-session',
+      templates: '/api/v1/fetch-default-template-ext'
+    },
+    documentation: 'https://github.com/Priyanshg0211/Medinote-backend',
+    deployment: 'Docker + Railway'
+  });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({
     error: 'Endpoint not found',
     path: req.path,
-    method: req.method
+    method: req.method,
+    availableEndpoints: [
+      'GET /',
+      'GET /health',
+      'GET /debug/sessions',
+      'GET /api/v1/patients',
+      'POST /api/v1/add-patient-ext',
+      'GET /api/v1/patient-details/:id',
+      'GET /api/v1/fetch-session-by-patient/:id',
+      'GET /api/v1/all-session',
+      'POST /api/v1/upload-session',
+      'POST /api/v1/get-presigned-url',
+      'POST /api/v1/notify-chunk-uploaded',
+      'GET /api/users/asd3fd2faec',
+      'POST /api/users',
+      'GET /api/v1/fetch-default-template-ext'
+    ]
   });
 });
 
