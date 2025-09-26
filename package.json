@@ -9,11 +9,16 @@
     "test": "curl http://localhost:3000/health"
   },
   "dependencies": {
-    "express": "^4.18.2",
+    "@supabase/supabase-js": "^2.58.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^12.3.0",
+    "firebase-admin": "^13.5.0",
     "helmet": "^7.1.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "uuid": "^8.3.2"
   },
   "engines": {
     "node": ">=16.0.0"
